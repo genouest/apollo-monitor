@@ -18,6 +18,8 @@ OPTIONS=  # Add "-d" to enable dry-run mode, and/or "--suffix @example.org" to r
 
 Checkout [docker-compose.prod.yml](./docker-compose.prod.yml) for an example.
 
+A preconfigured Grafana dashboard is available in [./grafana/](./grafana/), feel free to adapt/adopts as needed.
+
 ## Loading old data
 
 You can load old data by running this while the container is running (to load from 2015 to 2021 in this example):
