@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     apollo-monitor:
-        image: quay.io/abretaud/apollo-monitor:latest
+        image: quay.io/genouest/apollo-monitor:latest
         depends_on:
             - apollo-db
             - influx
