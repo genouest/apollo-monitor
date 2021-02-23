@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+    apollo-monitor:
+        image: quay.io/abretaud/apollo-monitor:latest
+        depends_on:
+            - apollo-db
+            - influx
+        environment:
+            DB_STRING: "postgresql://postgres:password@apollo-db/postgres"
+
+    # This is for testing, runs only the postgres db without the Apollo app.
+    # In real life you'll probably want to have the GMOD/Apollo docker image here.
+    apollo-db:
+        image: postgres:11.7-alpine
+        environment:
+            POSTGRES_PASSWORD: password
+
+    influx:
+        image: influxdb:1.8-alpine
+        volumes:
+            - influx-data:/var/lib/influxdb/
+
+    grafana:
+        depends_on:
+            - influx
+        image: grafana/grafana:7.4.2
+        volumes:
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
+            - ./grafana/config.ini:/etc/grafana/grafana.ini
+            - ./grafana/dashboards/:/var/lib/grafana/dashboards/
+        ports:
+          - '3000:3000'
+
+volumes:
+    influx-data:

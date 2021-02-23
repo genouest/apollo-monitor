@@ -1,0 +1,4 @@
+sqlalchemy
+click
+psycopg2-binary
+influxdb
