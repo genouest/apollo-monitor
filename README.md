@@ -18,7 +18,7 @@ OPTIONS=  # Add "-d" to enable dry-run mode, and/or "--suffix @example.org" to r
 
 Checkout [docker-compose.prod.yml](./docker-compose.prod.yml) for an example.
 
-A preconfigured Grafana dashboard is available in [./grafana/](./grafana/), feel free to adapt/adopts as needed.
+A preconfigured Grafana dashboard is available in [./grafana/](./grafana/), feel free to adapt/adopt as needed.
 
 ## Loading old data
 
